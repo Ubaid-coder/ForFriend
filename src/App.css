@@ -1,0 +1,103 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Courier New', Courier, monospace;
+  background: #000;
+  color: #00ff9c;
+  overflow-x: hidden;
+  user-select: none;
+}
+
+.buttonDiv,
+.loadingDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+}
+
+button {
+  padding: 15px 30px;
+  font-size: 22px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #00ff9c, #00ffe0);
+  color: black;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 0 20px #00ffe0;
+  transition: transform 0.2s ease;
+}
+
+button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 40px #00ffe0;
+}
+
+.matrixText {
+  font-size: 24px;
+  animation: typewriter 3s steps(30, end) infinite;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid #00ff9c;
+}
+
+.dots::after {
+  content: '...';
+  animation: dots 1s steps(3, end) infinite;
+}
+
+@keyframes dots {
+  0% { content: ''; }
+  33% { content: '.'; }
+  66% { content: '..'; }
+  100% { content: '...'; }
+}
+
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 22ch; }
+}
+
+.setImage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  animation: fadeIn 1s ease forwards;
+}
+
+.setImage img {
+  width: 250px;
+  border-radius: 8px;
+  box-shadow: 0 0 30px #00ff9c;
+  animation: glitch 0.3s infinite alternate;
+}
+
+/* glitch effect */
+@keyframes glitch {
+  0% {
+    transform: translate(0px);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(2px, -2px);
+  }
+  60% {
+    transform: translate(-2px, -2px);
+  }
+  80% {
+    transform: translate(2px, 2px);
+  }
+  100% {
+    transform: translate(0px);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
